@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Student Test</title>
+	<meta name="description" content="Student test">
+	<meta name="author" content="Kebrom Brhane">
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<ul class="ul" class="centerText">
+		<li class="li"><a href="/">Home</a></li>
+		<li class="li"><a class="active" href="Studenttest">Take Test</a></li>
+		<li class="li"><a href="Status">History</a></li>
+
+		<li style="float:right"><a href="/logout">Logout</a></li>
+	</ul>
+	<h2>{{message}}</h2>
+	<div>
+		<h2><span id="display" style="color:#FF0000;font-size:30px"></span></h2>
+	</div>
+	<div><span id="submitted" style="color:#FF0000;font-size:15px"></span></div>
+
+	<div>
+
+		<form action="/StudentTest" method="POST" name="MCQuestion" id="MCQuestion">
+			<ol>
+				{{#each listQuestion}}
+				{{#if listQuestion}}
+
+				{{else}}
+				<script>
+					var div = document.getElementById('display');
+					var submitted = document.getElementById('submitted');
+					function CountDown(duration, display) {
+						var timer = duration, minutes, seconds;
+						var interVal = setInterval(function () {
+							minutes = parseInt(timer / 60, 10);
+							seconds = parseInt(timer % 60, 10);
+
+							minutes = minutes < 10 ? "0" + minutes : minutes;
+							seconds = seconds < 10 ? "0" + seconds : seconds;
+							display.innerHTML = "Timer: " + minutes + "m : " + seconds + "s";
+							if (timer > 0) {
+								--timer;
+							} else {
+								clearInterval(interVal)
+								SubmitFunction();
+							}
+						}, 1000);
+					}
+					function SubmitFunction() {
+						submitted.innerHTML = "Time is up!";
+						document.getElementById('MCQuestion').submit();
+					}
+					CountDown(1800, div);
+				</script>
+				{{/if}}
+				<h3 style="font-size: small;">{{this.questionTitle}} </h3>
+
+				<h3 style="font-size: small;">{{this.Example}} </h3>
+				<input type="hidden" name="questionTitle" value="{{this.questionTitle}}">
+				<input type="hidden" name="Example" value="{{this.Example}}">
+				<textarea rows="2" cols="60" readonly>{{this.Question}}</textarea>
+				<input type="hidden" name="sequence" value="{{this.sequence}}" />
+				<input type="hidden" name="correctAns" value="{{this.correctAns}}" />
+				<input type="hidden" name="Qid" value="{{this.Qid}}" />
+				<input type="hidden" name="questionWk" value="{{this.questionWk}}" />
+				<input type="hidden" name="question" value="{{this.Question}}" />
+				<p style="font-size: small;"><textarea type="text1" id="StudnetAnsI" name="StudnetAnsI"
+						placeholder=""></textarea></p>
+
+				{{/each}}
+				<input type="submit" value="Submit Quiz" style="display:{{Submit}}" />
+			</ol>
+			<ol>
+
+				{{#each myScore}}
+				<h3 style="font-size: small;">
+					<p>Your score is {{Score}} out of {{Outoff}}</p>
+				</h3> <br>
+				{{/each}}
+				{{#each listQuestion1}}
+				<h3 style="font-size: small;">{{this.questionTitle}} </h3>
+				<h3 style="font-size: small;">{{this.Example}} </h3>
+
+				<h3 style="font-size: small;"> {{this.question}} </h3>
+				<p style="font-size: smaller; color:{{this.colour}};">Ans: {{this.StudnetAns}} </p>
+				<p style="font-size: smaller; color:{{this.colour}};">Correct Ans: {{this.correctAns}} </p>
+				{{/each}}
+			</ol>
+		</form>
+
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>view score</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="description" content="view all questions">
+	<meta name="author" content="Kebrom Brhane">
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<ul class="ul" class="centerText">
+		<li class="li"><a href="/">Home</a></li>
+		<li class="li"><a href="addQuestion">Add Questions</a></li>
+		<li class="li"><a href="ViewQuestion">Edit Question</a></li>
+		<li class="li"><a href="viewStudentScr">Student Feedback</a></li>
+		<li class="li"><a class="active" href="viewScore">Student Score</a></li>
+
+
+
+		<li style="float:right"><a href="/logout">Logout</a></li>
+		<li class="li" style="float:right"><a href="editStudent">Edit Student</a></li>
+		<li class="li" style="float:right"><a href="/addStudent">Add Student</a> </li>
+	</ul>
+
+
+	<div>
+		<form action="/viewScore" method="post">
+			<ol>
+
+				<label for="level">Select Week</label> <br />
+
+				<input type="week" id="Questionwk" name="Questionwk" value=""> <br />
+
+				<input type="submit" value="Search">
+
+				<ol>
+					<table class="w3-table-all w3-hoverable" style="width:90%">
+						<thead>
+							<tr class="w3-light-grey">
+								<th>Student Username</th>
+								<th>Question Week</th>
+								<th>Score</th>
+								<th>Out Off</th>
+							</tr>
+						</thead>
+						<h2>{{message}}</h2>
+
+						<tr style="background-color:rgb(216, 213, 203);">
+							{{#each viewScore}}
+							<td>
+								<textarea type="text" id="correctAns" name="correctAns"
+									placeholder="Enter the crrect answer..">{{this.Username}}</textarea>
+							</td>
+							<td>
+								<textarea type="text" id="correctAns" name="correctAns"
+									placeholder="Enter the crrect answer..">{{this.questionWk}}</textarea>
+							</td>
+
+							<td>
+								<textarea type="text" id="correctAns" name="correctAns"
+									placeholder="Enter the crrect answer..">{{this.Score}}</textarea>
+							</td>
+
+							<td>
+								<textarea type="text" id="correctAns" name="correctAns"
+									placeholder="Enter the crrect answer..">{{this.Outoff}}</textarea>
+
+							</td>
+						</tr>
+						{{/each}}
+
+					</table>
+
+				</ol>
+			</ol>
+
+		</form>
+
+	</div>
+</body>
+
+</html>

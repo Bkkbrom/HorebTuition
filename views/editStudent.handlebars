@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Edit Student</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="description" content="view all questions">
+	<meta name="author" content="Kebrom Brhane">
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<ul class="ul" class="centerText">
+		<li class="li"><a href="/">Home</a></li>
+		<li class="li"><a href="addQuestion">Add Questions</a></li>
+		<li class="li"><a href="ViewQuestion">Edit Question</a></li>
+		<li class="li"><a href="viewStudentScr">Student Feedback</a></li>
+		<li class="li"><a href="viewScore">Student Score</a></li>
+
+
+
+		<li style="float:right"><a href="/logout">Logout</a></li>
+		<li class="li" style="float:right"><a class="active" href="editStudent">Edit Student</a></li>
+		<li class="li" style="float:right"><a href="/addStudent">Add Student</a> </li>
+	</ul>
+
+
+
+	<div>
+
+		<form action="/editStudent" method="post">
+
+			<label for="level">Select student level</label> <br />
+			<select id="level" name="level">
+				<option value=""></option>
+
+				<option value="Year1">Year 1</option>
+				<option value="Year2">Year 2</option>
+				<option value="Year3">Year 3</option>
+				<option value="Year4">Year 4</option>
+				<option value="Year5">Year 5</option>
+				<option value="Year6">Year 6</option>
+			</select> <br />
+
+			<label for="date"> Student username</label> <br />
+			<input type="text1" id="studentUsername" name="studentUsername" value=""> <br />
+
+			<input type="submit" value="Search">
+		</form>
+
+
+		<form action="updateStudent" method="POST">
+			<table class="w3-table-all w3-hoverable" style="width:100%">
+				<thead>
+					<tr class="w3-light-grey">
+
+						<th>Username</th>
+						<th>id</th>>
+						<th>FName</th>
+						<th>LName</th>
+						<th>DOB</th>
+						<th>Level</th>
+						<th>Email</th>
+						<th>Password</th>
+					</tr>
+				</thead>
+				<h2>{{message}}</h2>
+				{{#each editStudent}}
+				<tr style="background-color:rgb(216, 213, 203);">
+					<td>
+						<input type="text" name="Username" id="Username" placeholder="{{this.Username}}"
+							value="{{this.Username}}" required=""
+							oninvalid="this.setCustomValidity('Username required')" oninput="setCustomValidity('')">
+					</td>
+					<td>
+						<input type="text" name="id" id="id" placeholder="{{this.id}}" value="{{this.id}}" required=""
+							oninvalid="this.setCustomValidity('Username required')" oninput="setCustomValidity('')">
+					</td>
+
+					<td>
+						<input type="text" name="FName" id="FName" placeholder="{{this.FName}}" value="{{this.FName}}"
+							required="" oninvalid="this.setCustomValidity('First Name required')"
+							oninput="setCustomValidity('')">
+					</td>
+					<td>
+						<input type="text" name="LName" id="LName" placeholder="{{LName}}" value="{{LName}}" required=""
+							oninvalid="this.setCustomValidity('Last Name required')" oninput="setCustomValidity('')">
+					</td>
+					<td>
+						<input type="text" name="DOB" id="DOB" placeholder="{{this.DOB}}" value="{{this.DOB}}">
+					</td>
+					<td>
+						<input type="text" name="level" id="level" placeholder="{{this.level}}" value="{{this.level}}">
+					</td>
+					<td>
+						<input type="text" name="Email" id="Email" placeholder="{{this.Email}}" value="{{this.Email}}">
+					</td>
+					<td>
+						<input type="text" name="Password" id="Password" placeholder="{{this.Password}}"
+							value="{{this.Password}}">
+					</td>
+
+				</tr>
+				{{/each}}
+			</table>
+			<button class="button" name="update" id="update" type="submit">Update</button>
+		</form>
+	</div>
+</body>
+
+</html>

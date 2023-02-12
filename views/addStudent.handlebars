@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Create an Account</title>
+	<meta name="description" content="form to add new books">
+	<meta name="author" content="Kebrom Brhane">
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+	<ul class="ul" class="centerText">
+		<li class="li"><a href="/">Home</a></li>
+		<li class="li"><a href="addQuestion">Add Questions</a></li>
+		<li class="li"><a href="ViewQuestion">Edit Question</a></li>
+		<li class="li"><a href="viewStudentScr">Student Feedback</a></li>
+		<li class="li"><a href="viewScore">Student Score</a></li>
+
+
+
+		<li style="float:right"><a href="/logout">Logout</a></li>
+		<li class="li" style="float:right"><a href="editStudent">Edit Student</a></li>
+		<li class="li" style="float:right"><a class="active" href="/addStudent">Add Student</a> </li>
+	</ul>
+	<div class="centerText">
+
+		<h1>Add new Student</h1>
+		<form action="/addStudent" method="post">
+			<p>Username: <input type="text1" name="Username" placeholder="Select a Username" value="" required=""
+					oninvalid="this.setCustomValidity('Username required')" oninput="setCustomValidity('')"></p>
+			<p>Unique numbers: <input type="text1" name="Unid" placeholder="Enter unique numbers" value="" required=""
+					oninvalid="this.setCustomValidity('unique numbers required')" oninput="setCustomValidity('')"></p>
+			<p>FName: <input type="text1" name="FName" placeholder="Enter Your First Name" value="" required=""
+					oninvalid="this.setCustomValidity('First Name required')" oninput="setCustomValidity('')"></p>
+			<p>LName: <input type="text1" name="LName" placeholder="Enter Your Last  Name" value="" required=""
+					oninvalid="this.setCustomValidity('Last Name required')" oninput="setCustomValidity('')"></p>
+			<p>DateOfBirth: <input type="date" name="DateOfBirth" placeholder="Enter Student Date Of Birth" value="">
+			</p>
+			<p>Select Level: <select id="level" name="level" required=""
+					oninvalid="this.setCustomValidity('Student level required')" oninput="setCustomValidity('')">
+					<option value=""></option>
+					<option value="Year1">Year 1</option>
+					<option value="Year2">Year 2</option>
+					<option value="Year3">Year 3</option>
+					<option value="Year4">Year 4</option>
+					<option value="Year5">Year 5</option>
+					<option value="Year6">Year 6</option>
+				</select> </p>
+			<p>Email: <input type="text1" name="Email" placeholder="Enter Email" value=""></p>
+			<p>Password: <input type="password" name="Password" placeholder="Create a password" value="" required=""
+					oninvalid="this.setCustomValidity('Password required')" oninput="setCustomValidity('')"></p>
+			<p><input type="submit" value="Create"></p>
+		</form>
+	</div>
+</body>
+
+</html>

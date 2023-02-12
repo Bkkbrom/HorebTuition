@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>History</title>
+	<meta name="description" content="Yous Status">
+	<meta name="author" content="Kebrom Brhane">
+	<link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+	<ul class="ul" class="centerText">
+		<li><a href="/">Home</a></li>
+		<li class="li"><a href="Studenttest">Take Test</a></li>
+		<li class="li"><a class="active" href="Status">History</a></li>
+		<li style="float:right"><a href="/logout">Logout</a></li>
+	</ul>
+
+	<div>
+		<form action="/Status" method="POST">
+			<ol>
+				<ol>
+					<h2>Which week would like to see the History</h2>
+					<input type="week" id="Questionwk" name="Questionwk" value=""> <br />
+
+					<input type="submit" value="Search" />
+
+				</ol>
+				<div class="entry">
+
+					<ol> {{#each ScoreBar}}
+						<div
+							style="width: {{Outoff}}ch; background-color: #ddd; padding: 0.2%;text-align: left;color: white">
+							{{this.questionWk}}
+							<div
+								style=" padding: 2.5%;width:{{Score}}ch; height: 5px;background-color:green;text-align: left;color: white;">
+							</div>
+						</div> <br>
+						{{/each}}
+						<h2>{{message}}</h2>
+						{{#each Studenscr}}
+						<h3 style="font-size: small;">Your score is {{this.Score}} out of {{this.Outoff}}</h3>
+						{{/each}}
+						<br>
+						{{#each listQuestion1}}
+						<h3 style="font-size: small;">{{this.questionTitle}} </h3>
+						<h3 style="font-size: small;">{{this.Example}} </h3>
+
+						<textarea rows="2" cols="60" readonly>{{this.question}}</textarea>
+						<p style="font-size: smaller;color:{{this.colour}};">Ans: {{this.StudnetAns}} </p>
+						<p style="font-size: smaller;color:{{this.colour}};">Correct Ans: {{this.correctAns}} </p>
+						{{/each}}
+					</ol>
+
+			</ol>
+		</form>
+	</div>
+</body>
+
+</html>

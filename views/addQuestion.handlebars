@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Add question</title>
+  <meta name="description" content="form to add new questions">
+  <meta name="author" content="Kebrom Brhane">
+  <link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <ul class="ul" class="centerText">
+    <li class="li"><a href="/">Home</a></li>
+    <li class="li"><a class="active" href="addQuestion">Add Questions</a></li>
+    <li class="li"><a href="ViewQuestion">Edit Question</a></li>
+    <li class="li"><a href="viewStudentScr">Student Feedback</a></li>
+    <li class="li"><a href="viewScore">Student Score</a></li>
+
+
+
+    <li style="float:right"><a href="/logout">Logout</a></li>
+    <li class="li" style="float:right"><a href="editStudent">Edit Student</a></li>
+    <li class="li" style="float:right"><a href="/addStudent">Add Student</a> </li>
+  </ul>
+
+  <div>
+    <h2>Add Question</h2>
+    <form action="/addQuestion" method="post">
+
+      <label for="level">Select level</label> <br />
+      <select id="level" name="level" required="" oninvalid="this.setCustomValidity('Question level required')"
+        oninput="setCustomValidity('')">
+        <option value=""></option>
+        <option value="Year1">Year 1</option>
+        <option value="Year2">Year 2</option>
+        <option value="Year3">Year 3</option>
+        <option value="Year4">Year 4</option>
+        <option value="Year5">Year 5</option>
+        <option value="Year6">Year 6</option>
+      </select> <br />
+
+      <label for="date"> Select Week of the exam </label><br />
+      <input type="week" id="questionWk" name="questionWk" value="" required=""
+        oninvalid="this.setCustomValidity('Question week required')" oninput="setCustomValidity('')"><br />
+
+      <label for="fname">Title</label> <br />
+      <textarea type="text" id="questionTitle" name="questionTitle" placeholder="Your Title.."></textarea>
+
+      <label for="fname">Sequence</label> <br />
+      <textarea type="text" id="sequence" name="sequence" placeholder="Input sequence starting from 1.." value=""
+        required="" oninvalid="this.setCustomValidity('Sequence required')" oninput="setCustomValidity('')"></textarea>
+
+      <label for="fname">Question</label> <br />
+      <textarea type="text" id="Question" name="Question" placeholder="Your Question.." value="" required=""
+        oninvalid="this.setCustomValidity('Question required')" oninput="setCustomValidity('')"></textarea>
+
+      <label for="fname">Example</label> <br />
+      <textarea type="text" id="Example" name="Example" placeholder="Example."></textarea>
+
+
+      <label for="lname">Correct Answer</label>
+      <textarea type="text" id="correctAns" name="correctAns" placeholder="Enter the crrect answer.." value=""
+        required="" oninvalid="this.setCustomValidity('Currect answer required')"
+        oninput="setCustomValidity('')"></textarea>
+
+
+      <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
