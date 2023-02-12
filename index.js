@@ -89,9 +89,6 @@ router.get('/login', async ctx => {
 
 router.post('/login', async ctx => {
 	try {
-		const body = ctx.request.body
-		const Username = 'Horeb133.Mulubrhan'
-		const Pass = "soliana13"
 
 		if (body.Username === Username && body.Password === Pass) {
 			ctx.session.authorised = true
